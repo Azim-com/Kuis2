@@ -9,6 +9,10 @@ public class Kuis01Azim {
         int totalUsia = 0;
         int anakdibawah12 = 0;
         int usiaTertua = 0;
+        int nim2 = 96;
+        int kuotaDewasa = (nim2 % 3) + 2;
+        int dewasa = 0;
+        int pengunjungDitolak = 0;
 
         for (int i = 1; i <= n; i++) {
             System.out.print("Usia pengunjung ke-" + i + ": ");
@@ -23,6 +27,7 @@ public class Kuis01Azim {
                     anakdibawah12++;
                 } else {
                     harga = 40000;
+                    dewasa++;
                 }
                 totalPendapatan += harga;
                 totalUsia += usia;
@@ -31,10 +36,14 @@ public class Kuis01Azim {
             if (usia > usiaTertua) {
                 usiaTertua = usia;
             }
+            if (dewasa > kuotaDewasa) {
+                pengunjungDitolak++;
+            }
             }
         double rataUsia = (double) totalUsia / n;
         System.out.println("=== REKAP HARIAN ===");
         System.out.println("Total pendapatan : Rp " + totalPendapatan);
         System.out.println("Rata-rata usia   : " + rataUsia + " tahun");
+        System.out.println("Pengunjung ditolak = " + pengunjungDitolak);
     }
 }
