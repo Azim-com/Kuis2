@@ -7,23 +7,31 @@ public class Kuis01Azim {
         int n = sc.nextInt();
         int totalPendapatan = 0;
         int totalUsia = 0;
+        int anakdibawah12 = 0;
+        int usiaTertua = 0;
 
         for (int i = 1; i <= n; i++) {
             System.out.print("Usia pengunjung ke-" + i + ": ");
             int usia = sc.nextInt();
-
-            // Harga tiket: usia di bawah 12 tahun Rp 25000, selain itu Rp 40000
-            int harga;
-            if (usia < 12) {
-                harga = 25000;
-            } else {
-                harga = 40000;
+                if (usia < 1 || usia > 80) {
+                    System.out.println("Input tidak valid, ulangi");
+                } else {
+                // Harga tiket: usia di bawah 12 tahun Rp 25000, selain itu Rp 40000
+                int harga;
+                if (usia < 12) {
+                    harga = 25000;
+                    anakdibawah12++;
+                } else {
+                    harga = 40000;
+                }
+                totalPendapatan += harga;
+                totalUsia += usia;
+                System.out.println("  Harga tiket: Rp " + harga);
+                }
+            if (usia > usiaTertua) {
+                usiaTertua = usia;
             }
-            totalPendapatan += harga;
-            totalUsia += usia;
-            System.out.println("  Harga tiket: Rp " + harga);
-        }
-
+            }
         double rataUsia = (double) totalUsia / n;
         System.out.println("=== REKAP HARIAN ===");
         System.out.println("Total pendapatan : Rp " + totalPendapatan);
